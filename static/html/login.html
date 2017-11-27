@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> -->
+    </script>
+</head>
+<body>
+        <p class="title"><%=name%></p>
+        <div class="render_list">jump</div>
+        <div class="test" id="test1">text1</div>
+        <div class="test" id="test2">text2</div>
+
+</body>
+<% include ../tmpl/jslib.html %>
+<script type="text/javascript">
+$(".render_list").click(function(){
+    console.log("lfshdlfh");
+    // 路由到index.js中寻找/detail的路由
+    $.get('/list',function(){
+        //执行路由里面的方法后，返回页面跳转到list.html页面
+      return  window.location.href = '/list';
+    });
+});
+$(".test").each(function(index, element) {
+                    $(element).click(function() {
+                        alert($(this).attr('id'));
+                    });
+                });
+
+</script>
+</html>

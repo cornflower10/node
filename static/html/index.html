@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+   
+</head>
+<body>
+        <p class="title"><%=name%></p>
+        <div class="render_list">jump</div>
+
+</body>
+<% include ../tmpl/jslib.html %>
+<script type="text/javascript">
+$(".render_list").click(function(){
+    console.log("lfshdlfh");
+    // 路由到list.js中寻找/detail的路由
+    $.get('/list',function(){
+        //执行路由里面的方法后，返回页面跳转到list.html页面
+      return  window.location.href = '/list';
+    });
+});
+</script>
+</html>
