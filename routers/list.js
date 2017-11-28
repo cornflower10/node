@@ -1,13 +1,8 @@
 var router = require('express').Router();
+var Movie = require('../model/mongoose/model/movie');
 
 function renderList(req,res){
-    var obj = {
-        name:'list',
-        flag:true,
-        products:['1','2','3']
-        
-
-    }
+    
     console.log(obj);
 //   res.send('name');
   res.render('list',obj);
