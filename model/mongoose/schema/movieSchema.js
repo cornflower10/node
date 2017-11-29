@@ -10,10 +10,10 @@ var movieSchema = new mongoose.Schema({
     flash:String,
     summary:String,
     language:String,
-    catergory:{
-        type:ObjectId,
-        ref:'categoryModel'
-    },
+    // catergory:{
+    //     type:ObjectId,
+    //     ref:'categoryModel'
+    // },
     meta:{
         createAt:{
             type:Date,

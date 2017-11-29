@@ -36,6 +36,8 @@ app.use('/',require('./routers/login'));
 app.use('/list',require('./routers/list'));
 app.use('/',require('./routers/detail'));
 
+app.use('/',require('./routers/admin/add_movie'));
+
 
 
 

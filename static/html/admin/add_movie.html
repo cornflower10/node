@@ -12,9 +12,9 @@
 <body>
         <p class="title"><%=name%></p>
      <form id="content" action="/add_movie" method="post">
-        <div><span>电影名称：</span><input type="text" value="" id="name"></div>
-        <div><span>导演</span><input type="text" value="" id="doctor"></div>
-        <div><span>国家</span><input type="text" value="" id="contry"></div>
+        <div><span>电影名称：</span><input type="text" value="" id="name" name="title"></div>
+        <div><span>导演</span><input type="text" value="" id="doctor" name="doctor"></div>
+        <div><span>国家</span><input type="text" value="" id="contry" name="country"></div>
     </form>
     <input type="button" value="保存"  class="save">
 

@@ -7,16 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-        <p><%= name%></p>
+    <p>
+        <%=name%>
+    </p>
     <ul>
-        <%if(flag){%>
-            <%if(products.length>0){%>
-                <%products.forEach(function(product,k){%>
-               <li><a href="/detail/<%-k%>"><%=product%></a></li>
-               <% })%>
-                
-                <%}%>
-        <%}%>
+        <%if(movies.length>0){%>
+            <%movies.forEach(function(product,k){%>
+                <li>
+                    <a href="/detail/<%-k%>">
+                        <%=product.title%>
+                    </a>
+                </li>
+                <% })%>
+
+                    <%}%>
     </ul>
 </body>
 </html>
