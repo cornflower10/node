@@ -27,7 +27,10 @@ app.set('view engine','html');
 app.use(express.static(path.join(__dirname,'static')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 /**
  * router
  */
@@ -36,7 +39,7 @@ app.use('/',require('./routers/login'));
 app.use('/list',require('./routers/list'));
 app.use('/',require('./routers/detail'));
 
-app.use('/',require('./routers/admin/add_movie'));
+app.use('/add_movie',require('./routers/add_movie'));
 
 
 

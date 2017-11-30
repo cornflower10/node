@@ -2,21 +2,31 @@ var router = require('express').Router();
 var Movie = require('../model/mongoose/model/movie');
 
 function renderList(req,res){
-    var obj={
-        name:'列表',
-        movies:[]
-    }
-    Movie.fetch(function(error,result){
-        if(error){
+    // Movie.fetch(function(error,result){
+    //     if(error){
+    //       console.log(error);
+    //     }else{
+    //         res.render('list',
+    //         {
+    //             name:"列表",
+    //             movies:result
+    //         });
+    //     }
+    // });
+  Movie.find({},function(error,movies){
+       if(error){
           console.log(error);
         }else{
-            obj.movies = result;
+            res.render('list',
+            {
+                name:"列表",
+                movies:movies
+            });
         }
-        console.log(obj);
-    });
+  });
   
 //   res.send('name');
-  res.render('list',obj);
+ 
 //   console.log('index');
 }
 router.get('/',renderList);

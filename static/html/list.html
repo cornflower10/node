@@ -14,7 +14,7 @@
         <%if(movies.length>0){%>
             <%movies.forEach(function(product,k){%>
                 <li>
-                    <a href="/detail/<%-k%>">
+                    <a href="/detail/<%-product.id%>">
                         <%=product.title%>
                     </a>
                 </li>
