@@ -45,6 +45,7 @@ movieSchema.statics={
         exec(cb)
     },
     findById:function(id,cb){
+        console.log(this);
         return this
         .findOne({_id:id})
         exec(cb)
