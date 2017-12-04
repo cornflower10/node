@@ -9,7 +9,7 @@ function renderDetail(req,res){
             res.render('detail',
             {
                 name:"detail",
-                movies:movie
+                movie:movie
             });
          }
     })

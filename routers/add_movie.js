@@ -6,7 +6,7 @@ function renderIndex(req,res){
          name:'添加'
     }
 
-    res.render('addmovie',obj);
+    res.render('admin/addmovie',obj);
 }
 router.get('/',renderIndex);
 

@@ -11,17 +11,33 @@
 </head>
 <body>
     <p class="title"><%=name%></p>
-    <form id="login" action="add_movie/add" method="post">
+    <!-- <form id="login" action="add_movie/add" method="post"> -->
        <div><span>name</span><input type="text" value="" id="name" name="name"></div>
        <div><span>passwd</span><input type="password" value="" id="passwd" name="passwd"></div>
-   </form>
+   <!-- </form> -->
    <input type="button" value="login"  class="login">
 
 </body>
-<% include ../tmpl/jslib.html %>
+<% include ../../tmpl/jslib.html %>
 <script type="text/javascript">
 $(".login").click(function(){
-   $("#login").submit();
+//    $("#login").submit();
+var name = $('#name').val();
+var passwd = $('#passwd').val();
+var obj = {
+    name:name,
+    passwd:passwd
+ }
+ $.post('/admin_login/login',obj,function(json){
+    if(json.success){
+        window.location.href = '/list';
+    }else{
+        console.log(json.msg)
+    }
+     
+
+ });
+
 });
 
 </script>

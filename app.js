@@ -2,7 +2,13 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
+
+/**
+ * session
+ */
 var session = require('express-session');
+var cookieParser = require('cookie-parser');
+
 var config = require('./config');
 var mongoose = require('mongoose');
 var dbUrl = 'mongodb://127.0.0.1:27017/movie-website';
@@ -31,6 +37,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+app.use(cookieParser('asd9pfyoay08'));
+app.use(session({
+    secret: 'asd9pfyoay08',//与cookieParser中的一致
+    resave: true,
+    saveUninitialized:true
+}));
+
+
 /**
  * router
  */
@@ -40,10 +55,21 @@ app.use('/list',require('./routers/list'));
 app.use('/',require('./routers/detail'));
 
 app.use('/add_movie',require('./routers/add_movie'));
+app.use('/admin_login',require('./routers/admin_login'));
 
 
+app.get('/404',function(req,res,next){
+       res.render('404');
+});
+app.use(function(err,req,res,next){
+    console.log(err)
+    res.redirect('/500');
+});
+app.use(function(req,res,next){
+    console.log('originalUrl:'+req.originalUrl);
+    res.redirect('/404');
 
-
+});
 
 
 module.exports = app;

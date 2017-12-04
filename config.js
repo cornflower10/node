@@ -1,5 +1,5 @@
 var config = {
-    port:8889,
+    port:8888,
     env:'dev'
 };
 
