@@ -1,5 +1,6 @@
 var router = require('express').Router();
 var Movie = require('../model/mongoose/model/movie');
+var auth = require('../controller/authController');
 
 function renderIndex(req,res){
     var obj = {
@@ -35,6 +36,6 @@ function renderAdd(req,res){
 
     });
 }
-router.post('/add',renderAdd);
+router.post('/add',auth.auth,renderAdd);
 
 module.exports = router;

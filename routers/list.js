@@ -1,8 +1,9 @@
 var router = require('express').Router();
 var Movie = require('../model/mongoose/model/movie');
+var auth = require('../controller/authController');
 
 function renderList(req,res){
-    if(req.session.user){
+    // if(req.session.user){
         Movie.fetch(function(error,result){
             if(error){
               console.log(error);
@@ -14,12 +15,12 @@ function renderList(req,res){
                 });
             }
         });
-    }else{
-        res.send({
-            success:false,
-            msg:'您还没有登录，请登录！'
-        });
-    }
+    // }else{
+    //     res.send({
+    //         success:false,
+    //         msg:'您还没有登录，请登录！'
+    //     });
+    // }
 
 //   Movie.find({},function(error,movies){
 //        if(error){
@@ -37,6 +38,6 @@ function renderList(req,res){
  
 //   console.log('index');
 }
-router.get('/',renderList);
+router.get('/',auth.auth,renderList);
 
 module.exports = router;

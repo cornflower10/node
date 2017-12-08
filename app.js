@@ -57,6 +57,7 @@ app.use('/',require('./routers/detail'));
 app.use('/add_movie',require('./routers/add_movie'));
 app.use('/admin_login',require('./routers/admin_login'));
 
+app.use(require('./controller/appFilter'));
 
 app.get('/404',function(req,res,next){
        res.render('404');
